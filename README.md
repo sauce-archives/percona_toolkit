@@ -35,7 +35,7 @@ in `defaults/main.yml`.
 
 ## Dependencies
 
-- percona_apt
+- [percona_apt](https://github.com/saucelabs-ansible/percona_apt)
 
 
 ## Playbooks
