@@ -17,4 +17,5 @@
     dest=/etc/percona-toolkit/{{ item.key }}.conf
     owner=root group=root mode=0644
   sudo: yes
+  when: percona_toolkit_configuration is defined
   with_dict: "{{ percona_toolkit_configuration }}"
