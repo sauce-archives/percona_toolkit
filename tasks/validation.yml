@@ -1,0 +1,13 @@
+---
+# file: tasks/validation.yml
+#
+# validation tasks.
+#
+
+- fail:
+    msg="only Ubuntu is supported"
+  when: ansible_distribution != 'Ubuntu'
+
+- fail:
+    msg="only Ubuntu > 12.04 is supported"
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version | version_compare('12.04', '<=')

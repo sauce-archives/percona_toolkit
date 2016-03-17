@@ -1,0 +1,11 @@
+---
+# file: tests/tasks/installation.yml
+#
+# test installation tasks.
+#
+
+- name: installation | is percona-toolkit package installed?
+  shell: dpkg-query -W -f='${Status}\n' percona-toolkit | awk '{ print $1 }'
+  register: test
+  changed_when: no
+  failed_when: test.stdout.find('install') == -1

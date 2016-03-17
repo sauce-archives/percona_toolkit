@@ -1,0 +1,20 @@
+---
+# file: tests/tasks/configuration.yml
+#
+# test configuration tasks.
+#
+
+- name: configuration | percona-toolkit pt-summary configuration directory is present?
+  shell: 'test -d /etc/percona-toolkit'
+  changed_when: no
+
+- name: configuration | percona-toolkit pt-summary configuration file is present?
+  shell: 'test -e /etc/percona-toolkit/pt-summary.conf'
+  changed_when: no
+
+- name: configuration | percona_toolkit.conf has expected default sections?
+  shell: "grep '{{ item }}' /etc/percona-toolkit/pt-summary.conf"
+  with_items:
+    - 'user=the_user'
+    - 'password=secret'
+  changed_when: no

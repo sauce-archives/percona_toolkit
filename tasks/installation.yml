@@ -1,0 +1,11 @@
+---
+# file: tasks/installation.yml
+#
+# installation tasks.
+#
+
+- name: installation | ensure percona-toolkit is installed
+  apt:
+    name="percona-toolkit={{ percona_toolkit_version }}"
+    state=present
+  sudo: yes

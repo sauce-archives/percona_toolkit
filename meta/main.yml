@@ -1,0 +1,18 @@
+---
+# file: percona_toolkit/meta/main.yml
+#
+# meta file
+#
+galaxy_info:
+  author: Pedro Salgado
+  description: Role to setup the MySQL Percona Toolkit.
+  company: saucelabs.com
+  min_ansible_version: 1.9.4
+  platforms:
+    - name: Ubuntu
+      versions:
+        - trusty
+  galaxy_tags:
+    - database
+dependencies:
+  - percona_apt

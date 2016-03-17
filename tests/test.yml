@@ -1,0 +1,20 @@
+---
+# file: percona_toolkit/tests/test.yml
+
+- name: tests play
+  hosts: "{{ vagrant_box }}"
+  gather_facts: yes
+
+  vars:
+    debug: true
+
+  roles:
+    - role: percona_toolkit
+      percona_toolkit_configuration:
+        pt-summary: |
+          user=the_user
+          password=secret
+      tags: percona_toolkit
+
+    - role: tests
+      tags: test

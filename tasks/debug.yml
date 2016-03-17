@@ -1,0 +1,27 @@
+---
+# file: tasks/debug.yml
+#
+# debug tasks.
+#
+
+- debug:
+    var="{{ item }}"
+  when: "{{ item }} is defined"
+  with_items:
+    - ansible_distribution
+    - ansible_distribution_version
+    - percona_toolkit_conf_collectors
+    - percona_toolkit_conf_collectors_default
+    - percona_toolkit_conf_handlers
+    - percona_toolkit_conf_handlers_default
+    - percona_toolkit_conf_handlers_main
+    - percona_toolkit_conf_logging_main
+    - percona_toolkit_conf_logging_loggers
+    - percona_toolkit_conf_logging_handlers
+    - percona_toolkit_conf_logging_formatters
+    - percona_toolkit_conf_server
+    - percona_toolkit_default_enabled
+    - percona_toolkit_default_pid
+    - percona_toolkit_default_user
+    - percona_toolkit_dependencies
+    - percona_toolkit_version

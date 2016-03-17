@@ -1,0 +1,11 @@
+---
+# file: percona_toolkit/tests/tasks
+#
+# test role execution.
+#
+
+- include: installation.yml
+  tags: installation
+
+- include: configuration.yml
+  tags: configuration

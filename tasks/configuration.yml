@@ -1,0 +1,20 @@
+---
+# file: tasks/configuration.yml
+#
+# configuration tasks.
+#
+
+- name: installation | ensure percona-toolkit configuration directory is preset
+  file:
+    path=/etc/percona-toolkit
+    owner=root group=root mode=0755
+    state=directory
+  sudo: yes
+
+- name: configuration | ensure integrity of percona-toolkit tools configuration
+  template:
+    src=etc/percona-toolkit/template.conf.j2
+    dest=/etc/percona-toolkit/{{ item.key }}.conf
+    owner=root group=root mode=0644
+  sudo: yes
+  with_dict: "{{ percona_toolkit_configuration }}"
