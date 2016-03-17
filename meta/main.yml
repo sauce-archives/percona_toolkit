@@ -15,4 +15,4 @@ galaxy_info:
   galaxy_tags:
     - database
 dependencies:
-  - percona_apt
+  - saucelabs-ansible.percona_apt
